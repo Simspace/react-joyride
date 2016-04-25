@@ -24,14 +24,14 @@ var react = require('react');
 var Joyride = require('react-joyride');
 
 var App = React.createClass({
-	render: function () {
-		return (
-			<div className="app">
-				<Joyride ref="joyride" steps={this.state.steps} debug={true} ... />
-				<YourComponents .../>
-			</div>
-		);
-	}
+  render: function () {
+    return (
+      <div className="app">
+        <Joyride ref="joyride" steps={this.state.steps} debug={true} ... />
+        <YourComponents .../>
+      </div>
+    );
+  }
   ...
 });
 ```
@@ -59,20 +59,20 @@ Add a custom function to include steps and/or tooltips in your parent component
 
 ```javascript
 addSteps: function (steps) {
-	let joyride = this.refs.joyride;
-		
-	if (!Array.isArray(steps)) {
-	    steps = [steps];
-	}
-	
-	if (!steps.length) {
-	    return false;
-	}
-	
-	this.setState(function(currentState) {
-	    currentState.steps = currentState.steps.concat(joyride.parseSteps(steps));
-	    return currentState;
-	});
+  let joyride = this.refs.joyride;
+    
+  if (!Array.isArray(steps)) {
+      steps = [steps];
+  }
+  
+  if (!steps.length) {
+      return false;
+  }
+  
+  this.setState(function(currentState) {
+      currentState.steps = currentState.steps.concat(joyride.parseSteps(steps));
+      return currentState;
+  });
 }
 
 addTooltip: function (data) {
@@ -84,18 +84,18 @@ Add steps after your components are mounted.
 
 ```javascript
 componentDidMount: function () {
-	this.addSteps({...}); // or this.addTooltip({...});
-	
+  this.addSteps({...}); // or this.addTooltip({...});
+  
 
-	// or using props in your child components
-	this.props.addSteps({...});
+  // or using props in your child components
+  this.props.addSteps({...});
 }
 ...   
 render: function () {
-	return (
-		<Joyride ref="joyride" .../>
-		<ChildComponent addSteps={this.addSteps} addTooltip={this.addTooltip} />
-	);
+  return (
+    <Joyride ref="joyride" .../>
+    <ChildComponent addSteps={this.addSteps} addTooltip={this.addTooltip} />
+  );
 }
 ```
 
@@ -153,7 +153,7 @@ Example:
 
 ```javascript
 <Joyride ref="joyride" steps={this.state.steps} debug={true} type="single"
-		 stepCallback={this._stepCallback} ... />
+     stepCallback={this._stepCallback} ... />
 ```
 
 ## API
@@ -180,15 +180,15 @@ Retrieve the current progress of your tour. The object returned looks like this:
 
 ```javascript
 {
-	index: 2,
-	percentageComplete: 50,
-	step: {
-		title: "...",
-		text: "...",
-		selector: "...",
-		position: "...",
-		...
-	}
+  index: 2,
+  percentageComplete: 50,
+  step: {
+    title: "...",
+    text: "...",
+    selector: "...",
+    position: "...",
+    ...
+  }
 }}
 ```
 
@@ -231,7 +231,7 @@ Extra option for standalone tooltips
 
 - `trigger`: The DOM element that will trigger the tooltip
 
-As of version 1.x you can style tooltips independently with these options: `backgroundColor`, `borderRadius`, `color`, `mainColor`, `textAlign` and `width`.
+As of version 1.x you can style tooltips independently with these options: `backgroundColor`, `borderRadius`, `color`, `mainColor`, `textAlign`, `width`, `topOffset`, `leftOffset`, and `holeOffset`.
 
 Also you can style `button`, `skip`, `back` and `close` individually using standard style options. And `beacon` inner and outer colors.
 
@@ -246,25 +246,33 @@ Example:
     position: 'bottom-left',
     type: 'hover',
     style: {
-		backgroundColor: 'rgba(0, 0, 0, 0.8)',
-		borderRadius: '0',
-		color: '#fff',
-		mainColor: '#ff4456',
-		textAlign: 'center',
-		width: '29rem',
-		beacon: {
-			inner: '#000',
-			outer: '#000'
-		},
-		button: {
-			display: 'none'
-			// or any style attribute
-		},
-		skip: {
-			color: '#f04'
-		},
-		...
-	},
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    borderRadius: '0',
+    color: '#fff',
+    mainColor: '#ff4456',
+    textAlign: 'center',
+    width: '29rem',
+    topOffset: 10,
+    leftOffset: 20,
+    holeOffset: {
+      top: 10,
+      left: 100,
+      width: 50,
+      height: 50,
+    }
+    beacon: {
+      inner: '#000',
+      outer: '#000'
+    },
+    button: {
+      display: 'none'
+      // or any style attribute
+    },
+    skip: {
+      color: '#f04'
+    },
+    ...
+  },
     // custom params...
     name: 'my-first-step',
     parent: 'MyComponentName'
