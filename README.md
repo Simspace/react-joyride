@@ -139,6 +139,8 @@ You can change the initial options passing props to the component. All optional.
 
 **showStepsProgress** {bool}: Display the tour progress in the next button *e.g. 2/5*  in `continuous` tours. Defaults to `false`
 
+**skipOnClose** {bool}: Ends the tour when a user clicks on close or clicks outside of the tooltip
+
 **steps** {array}: The tour's steps. Defaults to `[]`
 
 **tooltipOffset** {number}: The tooltip offset from the target. Defaults to `30`
