@@ -237,6 +237,7 @@ As of version 1.x you can style tooltips independently with these options: `back
 
 Also you can style `button`, `skip`, `back` and `close` individually using standard style options. And `beacon` inner and outer colors.
 
+Set `callbacks` to trigger function calls after the step finishes.
 
 Example:
 
@@ -247,6 +248,7 @@ Example:
     selector: '.first-step',
     position: 'bottom-left',
     type: 'hover',
+    callbacks: [function1, function2]
     style: {
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
     borderRadius: '0',
