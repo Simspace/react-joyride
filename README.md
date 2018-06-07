@@ -23,7 +23,7 @@ Include `Joyride` in the parent component before anything else.
 var react = require('react');
 var Joyride = require('react-joyride');
 
-var App = React.createClass({
+var App = createClass({
   render: function () {
     return (
       <div className="app">
