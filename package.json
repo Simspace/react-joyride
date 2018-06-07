@@ -23,6 +23,7 @@
   ],
   "dependencies": {
     "object-assign": "^4.0",
+    "prop-types": "^15.6.1",
     "scroll": "1.0"
   },
   "peerDependencies": {
